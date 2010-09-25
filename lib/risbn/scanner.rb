@@ -1,5 +1,8 @@
 require 'shellwords'
 require 'tmpdir'
+require 'ruby-debug'
+require 'colorize'
+require 'ap'
 
 class RISBN
 
@@ -40,15 +43,13 @@ class RISBN
       end
     end
 
-    def scan_txt(path)
+    def scan_txt(path, ta = [])
       IO.foreach(path) do |line|
-        isbn = RISBN.parse_first(line)
-        return isbn if isbn.valid?
+        RISBN.parse(line).each{ |x| ta << x if ISBN_Tools.is_valid?(x)}
       end
-      nil
+      return ta
     rescue # any problem with the text encoding
       nil
     end
-
   end
 end

@@ -9,7 +9,7 @@ begin
     gem.description = %Q{Utils to handle isbns}
     gem.email = "EmmanuelOga@gmail.com"
     gem.homepage = "http://github.com/EmmanuelOga/risbn"
-    gem.authors = ["Emmanuel Oga"]
+    gem.authors = ["Emmanuel Oga", "voipscout"]
     gem.add_development_dependency "rspec", ">= 1.2.9"
     gem.add_dependency "nokogiri"
   end
